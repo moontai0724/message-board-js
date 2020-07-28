@@ -10,15 +10,18 @@ function initialize() {
 function fetchMessageFaker() {
   let messages = [], base = Number(jQuery(".card:first").data("id") ?? 0);
 
-  for (let i = 1; i < 100; i++)
+  for (let i = 1; i <= 100; i++)
     messages.push({
-      id: base + i,
+      id: i,
       author: nameGenerator(),
       time: timeGenerator(),
-      content: `This is ${i} in 100 messages.`.repeat(Math.round(Math.random() * 20) + 1)
+      content: `Index ${i} in 100 messages. `.repeat(Math.round(Math.random() * 20) + 1)
     });
 
-  return messages.sort((a, b) => (new Date(a.time)) - (new Date(b.time)));
+  return messages.sort((a, b) => (new Date(a.time)) - (new Date(b.time))).map((message, index) => {
+    message.id = base + index + 1;
+    return message;
+  });
 }
 
 function addMessage(id, author, time, content) {
