@@ -39,7 +39,7 @@ function addMessage(id, author, time, content) {
 function editMessage(id, author, time, content) {
   let message = jQuery(`.card[data-id=${id}]`);
   message.find(".author").text(author);
-  message.find(".time").text(time);
+  message.find(".time").attr("data-iso-time", time).text(new Date(time).toLocaleString("zh-TW", { hour12: false }));
   message.find(".content").text(content);
 }
 
