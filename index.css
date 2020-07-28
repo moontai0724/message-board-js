@@ -1,0 +1,50 @@
+#root {
+  margin: 20px;
+}
+
+#messages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#messages:empty::before {
+  text-align: center;
+  content: "目前沒有任何留言！";
+}
+
+.card {
+  margin: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+.card p {
+  max-width: 500px;
+}
+
+.action {
+  cursor: pointer;
+  margin: 0px 3px 0px 3px;
+}
+
+.action.edit:hover {
+  color: limegreen;
+}
+
+.action.edit:active {
+  color: darkgreen;
+}
+
+.action.remove:hover {
+  color: red;
+}
+
+.action.remove:active {
+  color: darkred;
+}
